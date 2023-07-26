@@ -7,7 +7,6 @@
  * 
 *********************************************************************/
 
-
 #pragma once
 
 #include<string>
@@ -42,8 +41,9 @@ namespace Protocols{
     };
 
     bool toINSPVAXAData(std::string const & str, INSPVAXAData & buffer);
-    
 
+    bool INSPVAXACheckCRC(std::string const & str);
+    
 
 }//namespace Protocols
 

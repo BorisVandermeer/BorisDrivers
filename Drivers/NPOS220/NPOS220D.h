@@ -11,8 +11,13 @@
 
 #include<serial/serial.h>
 
+#include<Protocols/CRC.h>
+
+#define CRC32_POLYNOMIAL 0xEDB88320L
+
 #define NPOS220D_BAUDRATE_DEFAULT (115200)
 #define NPOS220D_BUFFER_SIZE      (1000)
+
 
 namespace Drivers{
 
@@ -28,6 +33,7 @@ namespace Drivers{
     private:
         serial::Serial ser;
         std::string Buffer;
+        const Protocols::CRC<uint32_t> CRC_calcor = Protocols::CRC<uint32_t>(CRC32_POLYNOMIAL,0U,0U,false);
     };
 
 } //namespace Drivers

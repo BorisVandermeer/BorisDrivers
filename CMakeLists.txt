@@ -18,7 +18,7 @@ if(IS_TOP_DIR)
 endif()
 
 # DeviceNeeded
-SET(BUILD_ALL OFF)
+SET(BUILD_ALL ON)
 if(BUILD_ALL)
     SET(BUILD_NPOS220 ON)
 else()
@@ -40,7 +40,7 @@ endif()
 
 # >>>>> Find Dependencies >>>>> #
 
-SET(BORIS_DRIVERS_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR} ${BORIS_SERIAL_INCLUDE_DIRS})
+SET(BORIS_DRIVERS_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Build Libs
 add_subdirectory(Protocols)
@@ -63,6 +63,6 @@ else()
 endif()
 
 # Build Test
-# if(ENABLE_TEST) 
-#     add_subdirectory(Test)
-# endif()
+if(ENABLE_TEST AND BUILD_ALL) 
+    add_subdirectory(Test)
+endif()
